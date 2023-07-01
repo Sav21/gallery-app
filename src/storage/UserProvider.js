@@ -3,23 +3,23 @@ import UserContext from "./UserContext";
 
 const UserProvider = ({ children }) => {
   const [userState, setUserState] = useState({});
-  const [isUserSignedIn, setIsUsersignedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
-  const signInUser = (user) => {
+  const logInUser = (user) => {
     setUserState(user);
-    setIsUsersignedIn(true);
+    setIsUserLoggedIn(true);
   };
 
-  const signOutUser = () => {
+  const logOutUser = () => {
     setUserState({});
-    setIsUsersignedIn(false);
+    setIsUserLoggedIn(false);
   };
 
   const userContext = {
     user: userState,
-    signedIn: isUserSignedIn,
-    signInUser,
-    signOutUser,
+    loggedIn: isUserLoggedIn,
+    logInUser,
+    logOutUser,
   };
   return (
     <UserContext.Provider value={userContext}>{children}</UserContext.Provider>
