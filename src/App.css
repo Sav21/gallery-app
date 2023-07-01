@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  background-image: url(https://mdbootstrap.com/img/Photos/Others/images/76.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .App {
+    background-size: contain;
+  }
 }
 
 .App-logo {
@@ -35,4 +46,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#nav1
+{  
+    background-color:#F00; /*whichever you want*/
+    opacity: 0.5; 
+    filter:(opacity=50);       
+}
+
+#filter
+{
+  background-color:rgb(255, 250, 250);
+  opacity: 0.5; 
+  filter:(opacity=50); 
+  
+}
+#btn-filter
+{
+  background-color:rgb(0, 128, 255);
+  opacity: 0.9; 
+  filter:(opacity=50); 
 }
