@@ -64,9 +64,11 @@ const ViewGallery = () => {
           <div className="card shadow-sm">
             <div className="card-body bg-light border rounded border">
               <h3 className="card-text">{gallery.name}</h3>
-              <div className="mb-1 text-body-secondary">
+              <a href={`/authors/${gallery.user?.id}`} style={{ textDecoration: "none", color: "darkslategrey" }}>
+                <div className="mb-1 text-body-secondary">
                 Author: {gallery.user?.first_name} {gallery.user?.last_name}
               </div>
+              </a>
               <p className="card-text mb-2">Release date: {formattedDate}</p>
               <p className="card-text mb-3">
                 Description: {gallery.description}

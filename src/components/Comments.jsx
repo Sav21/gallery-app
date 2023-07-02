@@ -22,9 +22,8 @@ const Comments = ({ comments, user, handleDeleteComm, loggedIn }) => {
               borderRadius: "10px",
             }}
           >
-            <div className="d-flex justify-content-between">
-              <p>No of comment: {index + 1}</p>
-              <p>{new Date(comment.created_at).toLocaleString()}</p>
+            <div className="d-flex justify-content-end">
+              <p>Posted: {new Date(comment.created_at).toLocaleString()}</p>
             </div>
             <textarea
               disabled
@@ -35,7 +34,7 @@ const Comments = ({ comments, user, handleDeleteComm, loggedIn }) => {
             ></textarea>
             <div className="d-flex justify-content-between">
               <p>
-                Comment author:{" "}
+                By:{" "}
                 {Array.isArray(users)
                   ? (() => {
                       const user = users.find(

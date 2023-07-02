@@ -62,7 +62,7 @@ const AddComment = ({ galleryId, setComments }) => {
         <div>
           <button
             type="submit"
-            className="btn btn-info"
+            className="btn btn-warning"
             disabled={!comment.description}
           >
             Post comment

@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../storage/UserContext";
 import { getUserById, getUserGalleries } from "../service/userService";
-import { Link } from "react-router-dom";
 
 const MyGalleries = () => {
   const { user } = useContext(UserContext);
@@ -60,41 +59,24 @@ const MyGalleries = () => {
       </div>
       <div
         className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
-        style={{ margin: "auto" }}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         {Array.isArray(filteredGalleries) && filteredGalleries.length > 0 ? (
           filteredGalleries.map((gallery, id) => (
             <div
               key={id}
               className="col m-5"
-              style={{ width: "380px", borderRadius: "5px", opacity: "90%" }}
             >
+               <a href={`/galleries/${gallery.id}`}>
+            <img className="card-img-top" src={JSON.parse(gallery.urls || "[]")[0]} alt={`${gallery.name}`} width="85" height="350"/>
+            </a>
+              
               <div className="card shadow-sm">
-                <h3>
-                  <Link
-                    to={`/galleries/${gallery.id}`}
-                    style={{ textDecoration: "none", color: "darkslategrey" }}
-                  >
-                    {gallery.name}
-                  </Link>
-                </h3>
-                <p className="card-text mb-auto">
-                  {new Date(gallery.created_at).toLocaleString()}
-                </p>
-                <img
-                  src={JSON.parse(gallery.urls || "[]")[0]}
-                  className="card-img-top"
-                  alt={`${gallery.name}`}
-                  width="100"
-                  height="300"
-                />
+              <h3><a href={`/galleries/${gallery.id}`} style={{ textDecoration: "none"}}>{gallery.name}</a></h3>
                 <p className="mb-1 text-body-secondary">
-                  <Link
-                    to={`/authors/${gallery.id}`}
-                    style={{ textDecoration: "none", color: "darkslategrey" }}
-                  >
+                  <a href={`/authors/${gallery.id}`} style={{ textDecoration: "none", color: "darkslategrey" }}>
                     Author: {author?.first_name} {author?.last_name}
-                  </Link>
+                  </a>
                 </p>
                 <p className="card-text mb-auto">
                   Description:{" "}
@@ -102,12 +84,15 @@ const MyGalleries = () => {
                     ? gallery.description.substring(0, 50) + "..."
                     : "No description"}
                 </p>
+                <p className="card-text mb-auto">
+                  Posted:  {new Date(gallery.created_at).toLocaleString()}
+                </p>
               </div>
             </div>
           ))
         ) : (
           <h1 className="container mt-5" style={{ width: "auto" }}>
-            You don't have galleries yet.
+            No galleries found
           </h1>
         )}
       </div>

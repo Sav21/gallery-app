@@ -33,7 +33,7 @@ const Navbar = () => {
           <li><a href="/" className="nav-link px-2 text-white">Gallery App</a></li>
           {loggedIn ? (
            <>
-          <li><a href="/create" className="nav-link px-2 text-white">Create New Gallery</a></li>
+          <li><a href="/add-gallery" className="nav-link px-2 text-white">Create New Gallery</a></li>
           <li><a href="/my-galleries" className="nav-link px-2 text-white">My Galleries</a></li>
           </>
           ) : null}

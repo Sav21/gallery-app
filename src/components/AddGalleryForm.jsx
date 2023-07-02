@@ -125,57 +125,97 @@ const CreateGalleryForm = () => {
   };
 
   return (
-    <div className="container-fluid px-1 py-5 mx-auto">
-      <div className=" d-flex justify-content-center">
-        <div className="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-          <div
-            className="card w-75 container"
-            style={{ opacity: "90%", padding: "20px" }}
-          >
-            <h5 className="text-center mb-4">Add new gallery</h5>
-            {error && (
+    //
+    //             <div className="form-group col-sm-6">
+    //               <button
+    //                 type="button"
+    //                 className="btn btn-primary"
+    //                 onClick={addUrlField}
+    //               >
+    //                 Add new URL
+    //               </button>
+    //             </div>
+    //           </div>
+    //           <div className="row justify-content-end mt-3">
+    //             <div className="form-group col-sm-6">
+    //               {!id ? (
+    //                 <button
+    //                   type="submit"
+    //                   className="btn btn-success"
+    //                   onClick={handleSubmit}
+    //                 >
+    //                   Add gallery
+    //                 </button>
+    //               ) : (
+    //                 <button
+    //                   type="submit"
+    //                   className="btn btn-warning"
+    //                   onClick={handleSubmit}
+    //                 >
+    //                   Edit gallery
+    //                 </button>
+    //               )}
+    //             </div>
+    //           </div>
+    //         </form>
+    //       </div>
+    //     </div>
+    //   </div>
+    //   </div>
+    //   </div>
+    // </div>
+    // </div>
+    // </section>
+    <section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style={{borderRadius: "15px;"}}>
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center text-info mb-5">Add new gallery</h2>
+
+              {error && (
               <div className="alert alert-danger" role="alert">
                 {error}
               </div>
             )}
-            <form className="form-card" onSubmit={handleSubmit}>
-              <div className="row justify-content-between text-left">
-                <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3">Name</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="name"
-                    placeholder="Enter gallery name"
-                    value={gallery.name}
-                    onChange={handleInputChange}
+              <form
+                onSubmit={handleSubmit}
+              >
+                <div class="form-outline mb-4">
+                  <input 
+                  type="text" 
+                  id="form3Example1cg" 
+                  className="form-control form-control-lg"
+                  name="name"
+                  value={gallery.name}
+                  onChange={handleInputChange}
                   />
+                  <label class="form-label" for="form3Example1cg">Title</label>
                 </div>
-                <div className="form-group col-sm-6 flex-column d-flex">
-                  <label className="form-control-label px-3">Description</label>
+
+                <div class="form-outline mb-4">
                   <textarea
                     className="mb-3 form-control"
                     rows="4"
                     cols="50"
                     name="description"
-                    placeholder="Enter gallery description"
                     value={gallery.description}
                     onChange={handleInputChange}
                   ></textarea>
+
+                  <label class="form-label" for="form3Example1cg">Description</label>
                 </div>
-              </div>
-              <div className="row justify-content-between text-left">
                 {Array.isArray(urls)
                   ? urls.map((url, index) => (
                       <div
-                        className="form-group col-sm-6 flex-column d-flex"
+                        className="form-outline mb-4"
                         key={index}
                       >
-                        <label className="form-control-label px-3">Url</label>
                         <input
                           className="form-control"
                           type="text"
-                          placeholder="Enter image url"
                           value={url}
                           onChange={(e) =>
                             handleUrlChange(index, e.target.value)
@@ -184,10 +224,12 @@ const CreateGalleryForm = () => {
                           pattern=".*\.(png|jpg|jpeg)$"
                           title="Please enter a valid image URL ending with .png, .jpg, or .jpeg"
                         />
+                          <label className="form-label">Url</label>
+                          <br></br>
                         {index > 0 && (
                           <button
                             type="button"
-                            className="btn btn-danger btn-sm mt-2 mb-2"
+                            className="btn btn-outline-danger btn-sm mt-2 mb-2"
                             onClick={() => removeUrlField(index)}
                           >
                             Remove URL
@@ -196,22 +238,21 @@ const CreateGalleryForm = () => {
                       </div>
                     ))
                   : null}
-                <div className="form-group col-sm-6">
+                 <div className="form-outline mb-4">
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-outline-success btn-sm"
                     onClick={addUrlField}
                   >
-                    Add new URL
+                    Add another URL
                   </button>
                 </div>
-              </div>
-              <div className="row justify-content-end mt-3">
-                <div className="form-group col-sm-6">
-                  {!id ? (
+                <div className="form-outline mb-4">
+                <div className="form-outline mb-4">
+                {!id ? (
                     <button
                       type="submit"
-                      className="btn btn-success"
+                      className="btn btn-warning btn-lg mt-2 mb-2"
                       onClick={handleSubmit}
                     >
                       Add gallery
@@ -219,19 +260,24 @@ const CreateGalleryForm = () => {
                   ) : (
                     <button
                       type="submit"
-                      className="btn btn-warning"
+                      className="btn btn-warning btn-lg mt-2 mb-2"
                       onClick={handleSubmit}
                     >
                       Edit gallery
                     </button>
                   )}
                 </div>
-              </div>
-            </form>
+              </div>         
+
+              </form>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
   );
 };
 export default CreateGalleryForm;
