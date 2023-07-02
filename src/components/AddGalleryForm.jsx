@@ -125,47 +125,6 @@ const CreateGalleryForm = () => {
   };
 
   return (
-    //
-    //             <div className="form-group col-sm-6">
-    //               <button
-    //                 type="button"
-    //                 className="btn btn-primary"
-    //                 onClick={addUrlField}
-    //               >
-    //                 Add new URL
-    //               </button>
-    //             </div>
-    //           </div>
-    //           <div className="row justify-content-end mt-3">
-    //             <div className="form-group col-sm-6">
-    //               {!id ? (
-    //                 <button
-    //                   type="submit"
-    //                   className="btn btn-success"
-    //                   onClick={handleSubmit}
-    //                 >
-    //                   Add gallery
-    //                 </button>
-    //               ) : (
-    //                 <button
-    //                   type="submit"
-    //                   className="btn btn-warning"
-    //                   onClick={handleSubmit}
-    //                 >
-    //                   Edit gallery
-    //                 </button>
-    //               )}
-    //             </div>
-    //           </div>
-    //         </form>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   </div>
-    //   </div>
-    // </div>
-    // </div>
-    // </section>
     <section class="vh-100 bg-image">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
